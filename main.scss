@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@400;600&display=swap');
+
+@mixin braekpoint($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  transition: all 1s ease;
+}
+
+body {
+  background-color: rgb(237, 242, 245);
+  color: rgb(22, 28, 109);
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
+
+  small {
+    margin-top: 2rem;
+    font-size: 15px;
+    font-style: italic;
+  }
+
+  .content {
+    padding: 2rem .5rem;
+    width: 90%;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    @include braekpoint(660px) {
+      width: 70%;
+      padding: 2rem;
+    }
+    @include braekpoint(960px) {
+      width: 50%;
+    }
+    @include braekpoint(1200px) {
+      width: 40%;
+    }
+    .title {
+      padding: 10px 0;
+      font-size: 25px;
+      text-align: center;
+      @include braekpoint(660px) {
+        font-size: 35px;
+      }
+    }
+
+    .message {
+      padding: 5px;
+      display: inline-block;
+      margin: 10px;
+      display: none;
+      text-align: center;
+    }
+
+    .message.active {
+      display: block;
+      background: red;
+      color: whitesmoke;
+    }
+
+    .nameDiv,
+    .numberDiv {
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    label {
+      font-size: 20px;
+      margin-right: 5px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      display: inline-block;
+      @include braekpoint(768px) {
+        margin-bottom: 0;
+      }
+    }
+
+    input {
+      padding: 15px;
+      background: rgb(238, 237, 237);
+      border: 2px solid transparent;
+      outline: none;
+      border-radius: 3rem;
+      width: 100%;
+      @include braekpoint(1200px) {
+        width: 250px;
+      }
+    }
+
+    button {
+      display: block;
+      margin: auto;
+      padding: 15px;
+      margin-bottom: 10px;
+      background: rgb(22, 28, 109);
+      color: whitesmoke;
+      font-size: 20px;
+      width: 100%;
+      border-radius: 3rem;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      &:hover {
+        background: rgb(12, 14, 44);
+      }
+      @include braekpoint(768px) {
+        width: 80%;
+      }
+    }
+
+    .friendList {
+      margin-top: 1rem;
+      padding: 10px;
+ 
+      .friendListTitle {
+        display: inline-block;
+        font-weight: bold;
+        font-size: 20px;
+        padding: 10px 0;
+      }
+
+      .friendNumber{
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .friend {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 10px 0;
+        padding: 10px 0;
+        background: rgb(238, 237, 237);
+
+        &:hover {
+          background: rgb(226, 226, 226);
+          
+        }
+
+        .deleteFriend {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          justify-content: center;
+          position: absolute;
+          background: #c50606;
+          padding: 5px 5px;
+          color: whitesmoke;
+          right: -15px;
+          cursor: pointer;
+          .bx{
+            font-size: 20px;
+          }
+
+          &:hover {
+            background: #a80505;
+          }
+        }
+      }
+    }
+  }
+
+  .welcomePage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(12, 14, 44, 0.698);
+    opacity: 0;
+    display: none;
+    transition: opacity .5s ease;
+
+    .pageInfo {
+      background: whitesmoke;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 90%;
+      @include braekpoint(660px){
+        width: max-content;
+      }
+
+      h2{
+        font-size: 25px;
+        text-align: center;
+        padding-bottom: 5px ;
+      }
+
+      .welcomeNote{
+      text-align: center;
+      display: block;
+      padding-bottom: 2rem;
+      color: rgba(12, 14, 44, 0.589);
+      }
+
+      .welcomeField{
+        input{
+          margin-bottom: 1rem;
+        }
+      }
+
+      button{
+        @include braekpoint(768px){
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.fall{
+  transform: translateY(80rem) rotateZ(40deg); 
+  opacity: .5;
+}
+
+::selection{
+  background-color:rgb(22, 28, 109) ;
+  color:rgb(240, 240, 240) ;
+}
+
