@@ -80,7 +80,7 @@ function addFriendToList(event){
         newFriend.append(deleteBtn)
     // appending the new element to the main elemeny(friendList...
         friendList.append(newFriend)
-        setToLocal(inputName.value, inputNumber.value )
+        
 
       
         const newText = document.querySelector('.friendListTitle')
@@ -104,33 +104,7 @@ function addFriendToList(event){
     
 }
 
-function setToLocal(friendName, friendNumber){
-    let newFriendLocal;
-    if(localStorage.getItem('newFriend') === null){
-        newFriendLocal = [];
-    } else{
-        newFriendLocal = JSON.parse(localStorage('newFriend'))
-    }
 
-    newFriendLocal.push(friendName, friendNumber)
-    localStorage.setItem('newFriend', JSON.stringify(newFriendLocal ))
-}
-
-// function getFriends(){
-//     let newFriendInTheLocal;
-//     if(localStorage.getItem('newfriend') === null){
-//         newFriendLocal = [];
-//     } else {
-//         newFriendLocal = JSON.parse(localStorage('newFriend'))
-//     }
-
-    
-// }
-
-const showingFromLS = localStorage.getItem('newFriend')
-
-let storedName = btn.parentElement[0].value;
-storedName.innerText = showingFromLS
 
 
 
